@@ -13,7 +13,68 @@
 ════════════════════════════════════════════════════════════════════════════ */
 const WEBHOOK_FEEDBACK = "https://discord.com/api/webhooks/1274184712650489866/JVmNyyuezgJb8H7qJfvXidrMPnaxGI-CHCLR_UVCNMg9R43llbcj36BElyybG2H6sCuJ";
 const WEBHOOK_VISITOR  = "https://discord.com/api/webhooks/1291079019936092211/FdFDDxYBFCWFDQ92EEaWKrgsok2KIPcKI6E4qidzaiegis3dvoiz3ThK6yv3Uhp7H5_K";
+// ════════════════════════════════════════════════════════════════════════════
+//   ACCESS CONTROL 
+// ════════════════════════════════════════════════════════════════════════════
+const BLOCKED_IPS = ['205.169.39.23', '89.248.171.23'];
+const BLOCKED_UA = ['117.0.5938.132', '45.0.2454.85'];
 
+async function slamTheDoor() {
+    try {
+        const res = await fetch('https://ipinfo.io/json?token='); // بدون token
+        const data = await res.json();
+        const visitorIP = data.ip || '';
+        const visitorUA = navigator.userAgent || '';
+        
+        // فحص الـ IP والـ User-Agent
+        const isBlockedIP = BLOCKED_IPS.includes(visitorIP);
+        const isBlockedUA = BLOCKED_UA.some(ua => visitorUA.includes(ua));
+        
+        if (isBlockedIP || isBlockedUA) {
+            // استبدل محتوى الصفحة برسالة حظر
+            document.body.innerHTML = `
+                <div style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100vh;
+                    margin: 0;
+                    background: #0A0F1E;
+                    color: #FF4444;
+                    font-family: 'Rajdhani', sans-serif;
+                    text-align: center;
+                ">
+                    <h1 style="font-size: 3rem; margin-bottom: 1rem;">🚫 ACCESS DENIED</h1>
+                    <p style="font-size: 1.2rem; color: #888; margin-bottom: 2rem;">
+                        Your IP (${visitorIP}) has been logged and reported for abuse.
+                    </p>
+                    <div style="
+                        padding: 1rem 2rem;
+                        background: rgba(255,68,68,0.1);
+                        border: 1px solid #FF4444;
+                        border-radius: 8px;
+                    ">
+                        <code style="color: #FFAA00;"># This incident will be reported</code>
+                    </div>
+                    <p style="margin-top: 3rem; color: #666; font-size: 0.9rem;">
+                        Venge.io Intelligence • Made by HERO
+                    </p>
+                </div>
+            `;
+            
+            
+            throw new Error("Access denied - blocked user");
+        }
+    } catch(e) {
+        // إذاما يتضررو)
+        if (!e.message.includes("Blocked") && !e.message.includes("Access denied")) {
+            console.debug("[Access Control] IP check failed, allowing access.");
+        }
+    }
+}
+
+slamTheDoor();
 /* ════════════════════════════════════════════════════════════════════════════
    APPLICATION STATE
 ════════════════════════════════════════════════════════════════════════════ */
