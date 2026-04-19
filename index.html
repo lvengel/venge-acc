@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venge.io Intelligence Dashboard</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="static/css/style.css" />
+
+  <!-- ══════════════════════════ FAVICON & ICONS ══════════════════════════ -->
+  <!-- أيقونة V احترافية (SVG Data URI) - لا تحتاج لأي ملف خارجي -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 225 225'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300D2FF'/%3E%3Cstop offset='100%25' stop-color='%237B68EE'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='6' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='225' height='225' rx='40' fill='%230A0F1E'/%3E%3Cpath d='M45 45 L112.5 180 L180 45 L140 45 L112.5 110 L85 45 L45 45Z' fill='url(%23g)' filter='url(%23glow)'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 225 225'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300D2FF'/%3E%3Cstop offset='100%25' stop-color='%237B68EE'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='6' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='225' height='225' rx='40' fill='%230A0F1E'/%3E%3Cpath d='M45 45 L112.5 180 L180 45 L140 45 L112.5 110 L85 45 L45 45Z' fill='url(%23g)' filter='url(%23glow)'/%3E%3C/svg%3E">
+  <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 225 225'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300D2FF'/%3E%3Cstop offset='100%25' stop-color='%237B68EE'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='6' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='225' height='225' rx='40' fill='%230A0F1E'/%3E%3Cpath d='M45 45 L112.5 180 L180 45 L140 45 L112.5 110 L85 45 L45 45Z' fill='url(%23g)' filter='url(%23glow)'/%3E%3C/svg%3E">
+
+  <!-- ══════════════════════════ META TAGS ══════════════════════════ -->
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Venge.io Intelligence Dashboard">
+  <meta name="description" content="Advanced OSINT & Password Intelligence Platform • 2967+ Players • Real-time Risk Analysis • Made by HERO">
+  <meta name="keywords" content="Venge.io, OSINT, Password Intelligence, Security, Gaming, Dashboard, HERO">
+  <meta name="author" content="HERO">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="1 days">
+
+  <!-- Open Graph / Discord / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lvengel.github.io/venge-acc/">
+  <meta property="og:title" content="Venge.io Intelligence Dashboard">
+  <meta property="og:description" content="Advanced OSINT & Password Intelligence Platform • 2967+ Players • Real-time Risk Analysis">
+  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 225 225'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300D2FF'/%3E%3Cstop offset='100%25' stop-color='%237B68EE'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='6' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='225' height='225' rx='40' fill='%230A0F1E'/%3E%3Cpath d='M45 45 L112.5 180 L180 45 L140 45 L112.5 110 L85 45 L45 45Z' fill='url(%23g)' filter='url(%23glow)'/%3E%3C/svg%3E">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="225">
+  <meta property="og:image:height" content="225">
+  <meta property="og:site_name" content="Venge.io Intelligence">
+  <meta property="og:locale" content="en_US">
+  <meta property="theme-color" content="#00D2FF">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://lvengel.github.io/venge-acc/">
+  <meta name="twitter:title" content="Venge.io Intelligence Dashboard">
+  <meta name="twitter:description" content="Advanced OSINT & Password Intelligence Platform • Made by HERO">
+  <meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 225 225'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300D2FF'/%3E%3Cstop offset='100%25' stop-color='%237B68EE'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='6' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='225' height='225' rx='40' fill='%230A0F1E'/%3E%3Cpath d='M45 45 L112.5 180 L180 45 L140 45 L112.5 110 L85 45 L45 45Z' fill='url(%23g)' filter='url(%23glow)'/%3E%3C/svg%3E">
+  <meta name="twitter:site" content="@HERO">
+  <meta name="twitter:creator" content="@HERO">
+
+  <!-- Discord Specific -->
+  <meta name="discord:card" content="summary">
+  <meta name="discord:title" content="Venge.io Intelligence Dashboard">
+  <meta name="discord:description" content="Advanced OSINT & Password Intelligence Platform">
+  <meta name="discord:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 225 225'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300D2FF'/%3E%3Cstop offset='100%25' stop-color='%237B68EE'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='6' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='225' height='225' rx='40' fill='%230A0F1E'/%3E%3Cpath d='M45 45 L112.5 180 L180 45 L140 45 L112.5 110 L85 45 L45 45Z' fill='url(%23g)' filter='url(%23glow)'/%3E%3C/svg%3E">
+
+  <!-- Microsoft / Windows -->
+  <meta name="msapplication-TileColor" content="#00D2FF">
+  <meta name="msapplication-TileImage" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 225 225'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300D2FF'/%3E%3Cstop offset='100%25' stop-color='%237B68EE'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='6' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='225' height='225' rx='40' fill='%230A0F1E'/%3E%3Cpath d='M45 45 L112.5 180 L180 45 L140 45 L112.5 110 L85 45 L45 45Z' fill='url(%23g)' filter='url(%23glow)'/%3E%3C/svg%3E">
+  <meta name="msapplication-config" content="none">
+
+  <!-- Apple / iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Venge Intel">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://lvengel.github.io/venge-acc/">
+
+  <!-- Security Headers -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://ipinfo.io https://ipapi.co https://discord.com;">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+</head>
+<body>
+
+  <!-- ══════════════════════════════ SIDEBAR ══════════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 4L16 28L28 4H20L16 14L12 4H4Z" fill="url(#vLogo)" />
+          <defs>
+            <linearGradient id="vLogo" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00D2FF"/><stop offset="1" stop-color="#7B68EE"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">Venge.io</span>
+        <span class="brand-sub">Intelligence</span>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"><span>SYSTEM OVERVIEW</span></div>
+
+    <div class="metric-cards">
+
+      <div class="metric-card">
+        <div class="metric-icon" style="--icon-color:#00D2FF">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+        <div class="metric-data">
+          <span class="metric-value" id="val-players">—</span>
+          <span class="metric-label">Total Players</span>
+        </div>
+        <div class="metric-glow" style="--glow:#00D2FF"></div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon" style="--icon-color:#7B68EE">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <div class="metric-data">
+          <span class="metric-value" id="val-clans">—</span>
+          <span class="metric-label">Active Clans</span>
+        </div>
+        <div class="metric-glow" style="--glow:#7B68EE"></div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon" style="--icon-color:#FFAA00">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+        </div>
+        <div class="metric-data">
+          <span class="metric-value" id="val-guesses">—</span>
+          <span class="metric-label">Password Guesses</span>
+        </div>
+        <div class="metric-glow" style="--glow:#FFAA00"></div>
+      </div>
+
+      <div class="metric-card danger">
+        <div class="metric-icon" style="--icon-color:#FF4444">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div class="metric-data">
+          <span class="metric-value" id="val-hvt">—</span>
+          <span class="metric-label">High-Value Targets</span>
+        </div>
+        <div class="metric-glow" style="--glow:#FF4444"></div>
+      </div>
+
+    </div><!-- /.metric-cards -->
+
+    <div class="sidebar-footer">
+      <div class="footer-status">
+        <span class="status-dot"></span>
+        <span id="loadStatus">Loading data…</span>
+      </div>
+      <div class="footer-credit">Made by <strong>HERO</strong></div>
+    </div>
+
+  </aside>
+
+  <!-- ═══════════════════════════ MAIN CONTENT ════════════════════════════ -->
+  <main class="main-content">
+
+    <!-- Top Header -->
+    <header class="top-header">
+      <div class="header-left">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <h1 class="page-title">Player <span class="accent">Intelligence</span></h1>
+      </div>
+      <div class="header-right">
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input type="text" id="searchInput" class="search-input"
+                 placeholder="Search players, clans…" autocomplete="off" />
+        </div>
+      </div>
+    </header>
+
+    <!-- Table Section -->
+    <section class="table-section">
+
+      <div class="table-header">
+        <div class="table-meta" id="tableMeta">Loading…</div>
+        <div class="table-controls">
+          <select class="limit-select" id="limitSelect">
+            <option value="25">25 / page</option>
+            <option value="50" selected>50 / page</option>
+            <option value="100">100 / page</option>
+            <option value="250">250 / page</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Loading overlay (shown while fetching JSON) -->
+      <div class="load-overlay" id="loadOverlay">
+        <div class="load-spinner"></div>
+        <div class="load-text">Fetching intelligence data…</div>
+      </div>
+
+      <div class="table-container" id="tableContainer" style="display:none">
+        <table class="data-table" id="playersTable">
+          <thead>
+            <tr>
+              <th class="col-rank">#</th>
+              <th class="col-user sortable active" data-col="username" data-order="asc">
+                Username <span class="sort-arrow">↑</span>
+              </th>
+              <th class="col-clan sortable" data-col="clan_name" data-order="asc">
+                Clan <span class="sort-arrow">↑</span>
+              </th>
+              <th class="col-risk sortable" data-col="risk_score" data-order="desc">
+                Risk <span class="sort-arrow">↓</span>
+              </th>
+              <th class="col-kdr sortable" data-col="kdr" data-order="desc">
+                K/D <span class="sort-arrow">↓</span>
+              </th>
+              <th class="col-score sortable" data-col="score" data-order="desc">
+                Score <span class="sort-arrow">↓</span>
+              </th>
+              <th class="col-pass">Top Password</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="pagination" id="pagination"></div>
+
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════ PLAYER MODAL ═════════════════════════════ -->
+  <div class="modal-overlay" id="playerModal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">✕</button>
+
+      <div class="modal-header">
+        <div class="modal-avatar" id="modalAvatar">?</div>
+        <div class="modal-title-wrap">
+          <h2 class="modal-username" id="modalUsername">—</h2>
+          <span class="modal-clan"   id="modalClan">—</span>
+        </div>
+        <div class="modal-risk-badge" id="modalRiskBadge">—</div>
+      </div>
+
+      <div class="modal-stats-grid">
+        <div class="modal-stat"><span class="modal-stat-label">K/D Ratio</span><span class="modal-stat-value" id="mKdr">—</span></div>
+        <div class="modal-stat"><span class="modal-stat-label">Total Score</span><span class="modal-stat-value" id="mScore">—</span></div>
+        <div class="modal-stat"><span class="modal-stat-label">Times Seen</span><span class="modal-stat-value" id="mTimesSeen">—</span></div>
+        <div class="modal-stat"><span class="modal-stat-label">Total Guesses</span><span class="modal-stat-value" id="mTotalGuesses">—</span></div>
+        <div class="modal-stat"><span class="modal-stat-label">First Seen</span><span class="modal-stat-value" id="mFirstSeen">—</span></div>
+        <div class="modal-stat"><span class="modal-stat-label">Last Seen</span><span class="modal-stat-value" id="mLastSeen">—</span></div>
+      </div>
+
+      <div class="modal-section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+        </svg>
+        Top 5 Password Intelligence
+      </div>
+
+      <div class="modal-guesses" id="modalGuesses">
+        <div class="guess-loading">No guesses on record.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════ FEEDBACK MODAL ════════════════════════════ -->
+  <div class="modal-overlay" id="feedbackModal" role="dialog" aria-modal="true">
+    <div class="modal-box feedback-box">
+      <button class="modal-close" id="feedbackClose">✕</button>
+      <h2 class="feedback-title">Send Feedback</h2>
+      <p class="feedback-sub">Message sent directly to the dev team via Discord.</p>
+      <div class="feedback-field">
+        <label for="fbName">Your name</label>
+        <input type="text" id="fbName" placeholder="Anonymous" />
+      </div>
+      <div class="feedback-field">
+        <label for="fbMessage">Message</label>
+        <textarea id="fbMessage" rows="5" placeholder="Type your feedback…"></textarea>
+      </div>
+      <div class="feedback-status" id="feedbackStatus"></div>
+      <button class="btn-primary" id="feedbackSubmit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+          <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+        Send to Discord
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ FLOATING ACTION BUTTON ═══════════════════════ -->
+  <button class="fab" id="fabBtn" aria-label="Send feedback" title="Send Feedback">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </svg>
+    <span class="fab-label">Feedback</span>
+    <div class="fab-ring"></div>
+  </button>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="static/js/dashboard.js"></script>
+</body>
+</html>
