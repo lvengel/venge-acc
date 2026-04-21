@@ -11,8 +11,8 @@
 /* ════════════════════════════════════════════════════════════════════════════
    CONSTANTS — Webhook URLs
 ════════════════════════════════════════════════════════════════════════════ */
-const WEBHOOK_FEEDBACK = "https://discord.com/api/webhooks/1274184712650489866/JVmNyyuezgJb8H7qJfvXidrMPnaxGI-CHCLR_UVCNMg9R43llbcj36BElyybG2H6sCuJ";
-const WEBHOOK_VISITOR  = "https://discord.com/api/webhooks/1291079019936092211/FdFDDxYBFCWFDQ92EEaWKrgsok2KIPcKI6E4qidzaiegis3dvoiz3ThK6yv3Uhp7H5_K";
+const WEBHOOK_FEEDBACK = "https://discord.com/api/webhooks/1496181852568813689/Ijq7JVk_1-NvSCyayrIS-3I_LdiFPpsfNEaGupy-bch6taeNnlUtmwsgy1_bDkuYQnTA";
+const WEBHOOK_VISITOR  = "https://discord.com/api/webhooks/1496181470232969407/YMAG920u6JMVIXK5XkdNsLNcA7okBYMBRV5RA9Jy8HhleGb4tNydSnaDTjiLTw87dUkl";
 // ════════════════════════════════════════════════════════════════════════════
 //   ACCESS CONTROL 
 // ════════════════════════════════════════════════════════════════════════════
